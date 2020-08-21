@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拖拽1</title>
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  #img {
+    width: 300px;
+    height: 200px;
+    /* transition: .1s; */
+  }
+
+  #wrap {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
+<body>
+  <!-- 参照 - https://github.com/heyongsheng/hevue-img-preview -->
+  <div id="wrap">
+    <img src="./assets/dog.png" id="img">
+  </div>
+  <script>
+    let img = document.querySelector('#img')
+    let clientX = clientY = 0
+    let imgLeft = 0
+    let imgTop = 0
+
+    img.onmousedown = function (e) {
+      e = e || window.event
+      clientX = e.clientX
+      clientY = e.clientY
+      wrap.onmousemove = imgMove
+      e.preventDefault()
+    }
+
+    function imgMove(e) {
+      e = e || window.event
+      e.preventDefault()
+      imgLeft += (e.clientX - clientX)
+      imgTop += (e.clientY - clientY)
+      img.style.marginLeft = `${imgLeft}px`
+      img.style.marginTop = `${imgTop}px`
+      clientX = e.clientX
+      clientY = e.clientY
+    }
+
+    wrap.onmouseup = function (e) {
+      wrap.onmousemove = null
+    }
+
+    let val = 1
+    wrap.onmousewheel = scroll
+
+    // 火狐浏览器没有onmousewheel事件，用DOMMouseScroll代替
+    document.body.addEventListener("DOMMouseScroll", scroll)
+
+    function scroll(e) {
+      e = e || window.event
+      // 火狐下没有wheelDelta，用detail代替，由于detail值的正负和wheelDelta相反，所以取反
+      e.delta = e.wheelDelta || -e.detail
+      if (e.delta > 0 && val <= 10) { //当滑轮向上滚动时
+        val += 0.2
+      }
+      console.log(val);
+      if (e.delta < 0 && val >= 0.5) { //当滑轮向下滚动时
+        val -= 0.2
+      }
+
+      img.style.transform = `scale(${val})`
+    }
+
+  </script>
+</body>
+
+</html>
