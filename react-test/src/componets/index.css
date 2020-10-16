@@ -1,0 +1,8 @@
+.wrap{
+    display: grid;
+    grid-template: repeat(3, 50px) / repeat(3, 50px);
+}
+.wrap button {
+    font-size: 20px;
+    font-weight: 700;
+}
