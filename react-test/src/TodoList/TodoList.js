@@ -1,40 +1,38 @@
 import React from 'react'
-import store from '../store'
 import TodoListUI from './TodoListUI'
+import * as actionCreators from './todoStore/actionCreators'
+import { connect } from 'react-redux'
 class TodoList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      ...store.getState()
-    }
-    store.subscribe(() => this.handleWatch())
-  }
-  handleWatch() {
-    this.setState(store.getState())
-  }
-  handleInputChange(value) {
-    console.log(value);
-    store.dispatch({
-      type: 'set_input',
-      value
-    })
-  }
-  handleDelete(index) {
-    store.dispatch({
-      type: 'delete_list',
-      index
-    })
-  }
-  add(index) {
-    store.dispatch({
-      type: 'add',
-      index
-    })
-  }
   render() {
-    console.log(this.state);
-    return <TodoListUI list={this.state.list} value={this.state.value} handleInputChange={this.handleInputChange} handleDelete={this.handleDelete} add={this.add} />
+    return <TodoListUI
+      list={this.props.list}
+      value={this.props.value}
+      handleInputChange={this.props.handleInputChange}
+      handleDelete={this.props.handleDelete}
+      handleAdd={this.props.handleAdd} />
   }
 }
 
-export default TodoList
+const mapStateToProps = (state) => {
+  return {
+    list: state.todoList.list,
+    value: state.todoList.value
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleInputChange: (value) => {
+      console.log(value);
+      dispatch(actionCreators.inputChange(value))
+    },
+    handleDelete: (index) => {
+      dispatch(actionCreators.deleteTodo(index))
+    },
+    handleAdd: () => {
+      dispatch(actionCreators.addTodo())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList)

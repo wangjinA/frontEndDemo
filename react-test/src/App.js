@@ -1,13 +1,14 @@
 import React from "react";
-import "./App.css";
 import Game from './componets/Game'
 import TodoList from './TodoList/TodoList'
+import { Provider } from 'react-redux'
+import store from './store'
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <Game />
       <TodoList />
-    </div>
+    </Provider>
   );
 }
 

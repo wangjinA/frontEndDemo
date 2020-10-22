@@ -1,0 +1,9 @@
+什么是Redux的中间件
+redux的中间件的中间指的是action和store的中间
+之前redux中的action只能是一个对象，所以action是一个对象直接派发给了store
+但是现在，当我们使用了redux-thunk的时候，action可以是一个函数了，所以中间件就是对dispatch的一个封装，或者说是对dispatch的一个升级，
+dispatch会根据参数的不同做不同的事情
+若传递的action是一个对象，那dispatch直接传给store
+若传递的action是一个函数，那dispatch通过middleware中间件（redux-thunk）直接自动执行函数，再通过函数中的具体情况看是否直接传递给store
+
+https://www.cnblogs.com/nayek/p/12389066.html
