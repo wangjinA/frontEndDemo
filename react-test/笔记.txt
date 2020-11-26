@@ -1,3 +1,10 @@
+1、css使用styled-components
+2、reducer中的state不可改变，使用immutable.js这个库，在set数据之后会基于原来对象返回新的对象
+	fromJS({name: 'xx'})
+3、使用redux-immutable，在reducer中，combineReducers不再用redux中的，使用redux-immutable，他会返回一个immutable的state
+4、目前只知道react-redux，可以通过provide组件注入store={store}
+	connect(mapStoreToProps, mapDispatchToProps)(TodoList)
+
 什么是Redux的中间件
 redux的中间件的中间指的是action和store的中间
 之前redux中的action只能是一个对象，所以action是一个对象直接派发给了store

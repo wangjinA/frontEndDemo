@@ -1,0 +1,1 @@
+export default require('./build-num.vue').default

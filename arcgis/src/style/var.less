@@ -1,0 +1,110 @@
+/*
+ * @Author: 汪锦
+ * @Date: 2020-10-13 11:07:47
+ * @LastEditors: 汪锦
+ * @LastEditTime: 2020-10-26 09:48:22
+ * @Description: 全局变量
+ */
+:root {
+  // 头部
+  --header-height: 0.96rem;
+  --header-height-fix: calc(var(--header-height) + 0.29rem); // 防止被阴影挡着
+
+  // 首页
+  --home-left-width: 3.64rem;
+  --home-right-width: 4.11rem;
+}
+
+// 动画集
+.leftSide-enter-active,
+.leftSide-leave-active,
+.bottomSide-enter-active,
+.bottomSide-leave-active,
+.rightSide-enter-active,
+.rightSide-leave-active,
+.showScaleDelay-enter-active,
+.showScaleDelay-leave-active {
+  transition: 0.5s;
+}
+.leftSide-leave-to,
+.leftSide-enter {
+  transform: translateX(-150%);
+}
+.rightSide-enter-to,
+.leftSide-leave,
+.leftSide-enter-to {
+  transform: translateX(0%);
+}
+.rightSide-leave-to,
+.rightSide-enter {
+  transform: translateX(150%);
+}
+
+.bottomSide-leave-to,
+.bottomSide-enter {
+  transform: translateY(150%);
+}
+.bottomSide-enter-to,
+.bottomSide-leave {
+  transform: translateY(0%);
+}
+.showScaleDelay-enter-active {
+  transition-delay: 0.5s;
+}
+.showScaleDelay-leave-to,
+.showScaleDelay-enter {
+  transform: scale(0);
+}
+.showScaleDelay-leave,
+.showScaleDelay-enter-to {
+  transform: scale(1);
+}
+
+.showScale-enter-active,
+.showScale-leave-active {
+  transition: 0.3s;
+}
+.showScale-leave-to,
+.showScale-enter {
+  transform: scale(0);
+}
+.showScale-leave,
+.showScale-enter-to {
+  transform: scale(1);
+}
+
+// 高度Y 和宽度X 拉伸 需
+// Y,要在容器上设置  : transform-origin: top;
+// X,要在容器上设置  : transform-origin: left;
+.scaleX-enter-active,
+.scaleX-leave-active,
+.scaleY-enter-active,
+.scaleY-leave-active {
+  transition: 0.3s;
+}
+.scaleY-leave-to,
+.scaleY-enter {
+  transform: scaleY(0);
+  opacity: 0;
+}
+.scaleY-leave,
+.scaleY-enter-to {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.scaleX-leave-to,
+.scaleX-enter {
+  transform: scaleX(0);
+  opacity: 0;
+}
+.scaleX-leave,
+.scaleX-enter-to {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.not-enter-active,
+.not-leave-active {
+  transition: 0s;
+}

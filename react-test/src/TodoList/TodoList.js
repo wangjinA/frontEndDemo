@@ -3,20 +3,26 @@ import TodoListUI from './TodoListUI'
 import * as actionCreators from './todoStore/actionCreators'
 import { connect } from 'react-redux'
 class TodoList extends React.Component {
+  componentWillMount() {
+
+  }
   render() {
     return <TodoListUI
       list={this.props.list}
       value={this.props.value}
+      filter={this.props.filter}
       handleInputChange={this.props.handleInputChange}
       handleDelete={this.props.handleDelete}
-      handleAdd={this.props.handleAdd} />
+      handleAdd={this.props.handleAdd}
+      handleFilter={this.props.handleFilter} />
   }
 }
 
 const mapStateToProps = (state) => {
   return {
     list: state.todoList.list,
-    value: state.todoList.value
+    value: state.todoList.value,
+    filter: state.todoList.filter
   }
 }
 
@@ -31,6 +37,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleAdd: () => {
       dispatch(actionCreators.addTodo())
+    },
+    handleFilter: (filter) => {
+      dispatch(actionCreators.setFilter(filter))
     }
   }
 }

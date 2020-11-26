@@ -1,0 +1,1 @@
+export default require('./info-num.vue').default

@@ -1,0 +1,1 @@
+export default require('./inout-info.vue').default

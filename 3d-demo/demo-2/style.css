@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  transform-style: preserve-3d;
+  align-items: center;
+  perspective-origin: top;
+  perspective: 1200px;
+}
+@keyframes photoRotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+  16.7% {
+    transform: rotateY(60deg);
+  }
+  33.3% {
+    transform: rotateY(120deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  66.7% {
+    transform: rotateY(240deg);
+  }
+  83.3% {
+    transform: rotateY(300deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+#container {
+  width: 100px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: photoRotate 20s cubic-bezier(0.035, 0.95, 0.305, 0.98) infinite;
+}
+
+.example {
+  width: 150px;
+  height: 200px;
+  position: absolute;
+  background-color: #f55;
+}
+
+.example:nth-of-type(1) {
+  transform: rotateY(0deg) translateZ(392px);
+}
+.example:nth-of-type(2) {
+  transform: rotateY(60deg) translateZ(392px);
+}
+.example:nth-of-type(3) {
+  transform: rotateY(120deg) translateZ(392px);
+}
+.example:nth-of-type(4) {
+  transform: rotateY(180deg) translateZ(392px);
+}
+.example:nth-of-type(5) {
+  transform: rotateY(240deg) translateZ(392px);
+}
+.example:nth-of-type(6) {
+  transform: rotateY(300deg) translateZ(392px);
+}

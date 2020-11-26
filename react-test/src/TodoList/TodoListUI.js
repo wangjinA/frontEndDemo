@@ -1,17 +1,35 @@
 import React from 'react'
 
 class TodoListUI extends React.Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
+    let filter_arr = [{
+      name: '全部',
+      filter: 'all'
+    }, {
+      name: '未完成',
+      filter: 'active'
+    }, {
+      name: '完成',
+      filter: 'completed'
+    }]
+    const { value, list, filter, handleAdd, handleInputChange, handleFilter, handleDelete } = this.props
     return (
       <div className="todoListUI">
-        <input value={this.props.value} onChange={(e) => this.props.handleInputChange(e.target.value)} />
-        <button onClick={this.props.add} onClick={this.props.handleAdd}>添加</button>
+        <input value={value} onChange={(e) => handleInputChange(e.target.value)} />
+        <button onClick={handleAdd}>添加</button>
+        <div>
+          {
+            filter_arr.map((item, i) => (
+              <span style={{ color: item.filter === filter && '#f55' }} key={i} onClick={() => handleFilter(item.filter)}>{item.name}</span>
+            ))
+          }
+        </div>
         <ul>
           {
-            this.props.list.map((item, index) => <li key={index} onClick={() => this.props.handleDelete(index)}>{item}</li>)
+            list.filter(item => filter === 'all' || item.filter === filter)
+              .map((item, index) =>
+                <li key={index} onClick={() => handleDelete(item)}>{item.value}</li>
+              )
           }
         </ul>
       </div>

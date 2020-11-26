@@ -1,0 +1,1 @@
+export default require('./home-right.vue').default

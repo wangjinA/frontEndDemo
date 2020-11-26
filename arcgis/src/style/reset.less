@@ -1,0 +1,189 @@
+/*
+ * @Author: 汪锦
+ * @Date: 2020-10-14 10:23:25
+ * @LastEditors: 汪锦
+ * @LastEditTime: 2020-10-28 10:13:25
+ * @Description: 重置一些默认样式
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+}
+ul,
+li,
+ol {
+  list-style: none;
+}
+input.reset,
+textarea.reset {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  padding: 0 0.1rem;
+  color: #fff;
+}
+button.reset {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  color: #fff;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+#app {
+  font-family: MicrosoftYaHei;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+  font-size: 0.16rem;
+  background-color: #000;
+}
+
+[class^='min-btn'] {
+  user-select: none;
+  display: inline-block;
+  font-size: 0.14rem;
+  height: 0.22rem;
+  padding: 0 0.05rem;
+  color: #000;
+  border-radius: 0.03rem;
+  background-color: rgba(74, 255, 255, 1);
+  cursor: pointer;
+  &:hover {
+    opacity: 0.85;
+  }
+  & + & {
+    margin-left: 0.1rem;
+  }
+  &.min-btn-1 {
+    background-color: rgba(255, 224, 3, 1);
+  }
+}
+// 公共标题
+.common-title {
+  height: 0.43rem;
+  color: #fff;
+  font-size: 0.24rem;
+  padding-left: 0.18rem;
+  background: linear-gradient(90deg, rgba(87, 202, 250, 0.459775910365) 0%, rgba(2, 9, 20, 0.35057773109243695) 52%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  > img {
+    margin-left: auto;
+    margin-right: 0.15rem;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0.03rem;
+    background: linear-gradient(90deg, rgba(87, 202, 250, 0.9948354341736695) 0%, rgba(2, 9, 20, 0) 100%);
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 0.1rem solid #00b7ee;
+    border-right: 0.1rem solid transparent;
+  }
+}
+
+//
+// 表单样式
+.common.ivu-form {
+  .ivu-form-item {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 39px;
+    .ivu-form-item-label {
+      font-size: 18px;
+      color: #18cffe;
+      width: 5em;
+    }
+    .ivu-select-selection,
+    .ivu-input {
+      background-color: rgba(164, 248, 255, 0.08);
+      border-color: #00ccff;
+      box-shadow: 0 0 6px 0px rgba(164, 248, 255, 0.5);
+      color: #fff;
+    }
+    .ivu-icon-ios-arrow-down {
+      font-size: 20px;
+    }
+    .ivu-date-picker {
+      width: 100%;
+    }
+  }
+  .ivu-select-dropdown {
+    color: initial;
+  }
+}
+
+// 分页样式
+.common.ivu-page {
+  .ivu-page-total {
+    color: #fff;
+    font-size: 14px;
+  }
+  li {
+    background-color: transparent;
+    height: 30px;
+    min-width: 30px;
+    &.ivu-page-item-active {
+      color: #266db6;
+      border-color: #266db6;
+    }
+    a {
+      color: #fff;
+    }
+    .ivu-icon {
+      font-size: 20px;
+    }
+  }
+}
+
+.common.ivu-input-wrapper {
+  /deep/ .ivu-input {
+    background-color: rgba(164, 248, 255, 0.08);
+    border-color: #00ccff;
+    box-shadow: 0 0 6px 0px rgba(164, 248, 255, 0.5);
+    color: #fff;
+  }
+  /deep/ .ivu-input-group-prepend {
+    width: 80px;
+    background-color: transparent;
+    border-color: #00ccff;
+    background-color: rgba(164, 248, 255, 0.08);
+    padding-left: 0;
+    padding-right: 0;
+    border-right: 1px solid;
+    .ivu-select {
+      color: #fff;
+    }
+  }
+}
+
+.ivu-table th {
+  background-color: transparent;
+}
+.ivu-table-cell {
+  padding-left: 8px;
+  padding-right: 8px;
+}

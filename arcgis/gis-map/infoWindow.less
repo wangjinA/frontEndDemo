@@ -1,0 +1,127 @@
+// .esriPopup{
+//     transition: opacity .2s;
+// }
+.esriPopupWrapper {
+  top: -350px !important;
+  left: -297px !important;
+  box-shadow: 0 0 0 0 !important;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("../../assets/images/map/infoWindow/shenlan.png");
+}
+
+.esriPopupWrapper.dark {
+  top: -370px !important;
+  left: -164px !important;
+}
+
+/* 警情五级 */
+.JQCASE.level5 .esriPopupWrapper {
+  background-image: url("../../assets/images/map/infoWindow/green.png");
+}
+
+/* 警情四级 */
+.JQCASE.level4 .esriPopupWrapper {
+  background-image: url("../../assets/images/map/infoWindow/blue.png");
+}
+
+/* 警情三级 */
+.JQCASE.level3 .esriPopupWrapper {
+  background-image: url("../../assets/images/map/infoWindow/yellow.png");
+}
+
+/* 警情二级 */
+.JQCASE.level2 .esriPopupWrapper {
+  background-image: url("../../assets/images/map/infoWindow/orange.png");
+}
+
+/* 警情一级 */
+.JQCASE.level1 .esriPopupWrapper {
+  background-image: url("../../assets/images/map/infoWindow/red.png");
+}
+
+/* 重点人员样式 */
+/* .iPerson .esriPopupWrapper {
+  left: -493px !important;
+} */
+.esriPopup .actionsPane,
+.esriPopup .titlePane,
+.esriPopup .contentPane {
+  background-color: transparent !important;
+}
+
+.esriPopup .outerPointer.left {
+  display: none !important;
+}
+
+.esriPopup .pointer.bottom {
+  display: none !important;
+}
+
+.esriPopup .titleButton.next {
+  display: none !important;
+}
+
+/* 标题 */
+.esriPopup .titlePane {
+  line-height: 50px !important;
+  border-bottom: 1px solid;
+  margin: 0 20px;
+  font-size: 22px;
+}
+
+.esriPopup .titleButton.prev,
+.esriPopup .titleButton.next {
+  top: 18px !important;
+}
+
+/* 内容 */
+.esriPopup .contentPane {
+  height: 281px !important;
+  color: #fff !important;
+  padding: 5px 20px 40px !important;
+  font-size: 18px;
+}
+
+/* 最大化按钮 */
+.esriPopup .titleButton.maximize {
+  display: none;
+}
+
+/* 关闭按钮 */
+.esriPopup .titleButton.close {
+  right: 20px !important;
+  top: 18px !important;
+}
+
+/* 功能区 */
+.esriPopup .actionsPane {
+  padding: 0 !important;
+  display: none !important;
+}
+
+/* 文字样式工具默认不显示 */
+.esriSymbolEditor {
+  display: none !important;
+}
+
+.mypop-content-animation {
+  // transform-origin: right bottom;
+  animation: map_hySacle 0.3s ease-out forwards;
+}
+@keyframes map_hySacle {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

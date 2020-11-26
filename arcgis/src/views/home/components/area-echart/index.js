@@ -1,0 +1,1 @@
+export default require('./area-echart.vue').default
