@@ -1,8 +1,10 @@
-export default [
+export const echart = [
   {
+    id: 1,
     background: '#000',
     name: '头部',
     componentName: 'HeaderV1',
+    previewImage: require('@/config/images/头部v1.jpg'),
     componentOption: {
       color: '#fff',
       size: 50,
@@ -23,10 +25,13 @@ export default [
       x: 0
     }
   }, {
+    id: 2,
     width: '100%',
     height: 200,
     background: '#000',
     name: '应急维稳保障',
+    previewImage: require('@/config/images/柱状图.jpg'),
+
     componentName: 'echart-template',
     componentOption: {
       options: {
@@ -129,9 +134,11 @@ export default [
       x: 0
     }
   }, {
+    id: 3,
     background: '#000',
     name: '3d云标签',
     componentName: 'threed-tags',
+    previewImage: require('@/config/images/3d云标签.png'),
     componentOption: {
       color: '#fff',
       list: [
@@ -163,4 +170,36 @@ export default [
       x: 520
     }
   }
+]
+
+export const text = [
+  {
+    id: 4,
+    background: '#000',
+    name: '滚动文字',
+    componentName: 'ScrollText',
+    previewImage: require('@/config/images/滚动文本.png'),
+    componentOption: {
+      text: '风圈半径：七级风圈半径 东北方向200公里；东南方向170公里；西南方向120公里；西北方向140公里 十级风圈半径　东北方向60公里；东南方向50公里；西南方向30公里；西北方向40公里预报结论：“白海豚”将以每小时15-20公里的速度向东北方向移动，强度变化不大时 间：23 日 10 时命 名：“白海豚”，DOLPHIN中心位置：北纬31.0度、东经137.0度强度等级：强热带风暴最大风力：10级， 28米/秒（约101公里/小时）中心气压：980 hPa参考位置：位于日本以南洋面，距离日本东京南偏西方向约580公里'
+    },
+    utilOption: {
+      color: 'input',
+      size: {
+        type: 'number',
+        min: 20,
+        max: 80
+      }
+    },
+    editOption: {
+      w: '100%',
+      h: 45,
+      y: 0,
+      x: 0
+    }
+  }
+]
+
+export default [
+  ...echart,
+  ...text
 ]

@@ -1,22 +1,13 @@
 <template>
   <div id="app">
-    <Datav-header></Datav-header>
-    <main>
-      <HelloWorld />
-    </main>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-import DatavHeader from "./layout/header";
-
 export default {
   name: "App",
-  components: {
-    HelloWorld,
-    DatavHeader,
-  },
+  components: {},
 };
 </script>
 
@@ -28,8 +19,5 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
-  main {
-    flex: 1;
-  }
 }
 </style>

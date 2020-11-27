@@ -83,10 +83,10 @@ export default {
   .bg-style("./images/header.png");
   // background-color: #070d1c;
   display: flex;
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 1000;
+  // position: fixed;
+  // left: 0;
+  // right: 0;
+  // z-index: 1000;
   &-menuList {
     .bg-style("./images/menu-bg.png");
     width: 137px;

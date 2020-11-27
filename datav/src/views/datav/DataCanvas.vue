@@ -1,5 +1,5 @@
 <template>
-  <div class="hello" ref="hello" :style="wrapStyle">
+  <div class="DatavCanvas" ref="DatavCanvas" :style="wrapStyle">
     <vue-draggable-resizable
       class-name="screen-box"
       class-name-draggable="screen-box-draggable"
@@ -46,7 +46,7 @@ import EchartTemplate from "@/components/echart-template";
 import ThreedTags from "@/components/threed-tags";
 import ScrollText from "@/components/ScrollText";
 export default {
-  name: "HelloWorld",
+  name: "DatavCanvas",
   props: {
     msg: String,
   },
@@ -90,8 +90,8 @@ export default {
     getBaseOption(item) {
       return {
         ...item,
-        w: item.w === "100%" ? this.$refs.hello.offsetWidth : item.w,
-        h: item.h === "100%" ? this.$refs.hello.offsetHeight : item.h,
+        w: item.w === "100%" ? this.$refs.DatavCanvas.offsetWidth : item.w,
+        h: item.h === "100%" ? this.$refs.DatavCanvas.offsetHeight : item.h,
       };
     },
     getRefLineParams(params) {
@@ -106,7 +106,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.hello {
+.DatavCanvas {
   background-color: #313239;
   height: 100%;
   width: 100%;

@@ -1,1 +1,1 @@
-export default require('./layer.vue').default
+export default require('./Layer.vue').default

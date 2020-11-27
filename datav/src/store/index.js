@@ -15,9 +15,18 @@ const store = new Vuex.Store({
     // 添加图层
     addLayer(state, value) {
       const { resourceLayers } = state
+      const resource_filter = resourceLayers.filter(item => item.id === value.id)
+      if (resource_filter.length > 0) {
+        value.name += resource_filter.length
+      }
       resourceLayers.push(value)
       this.commit('setLayerHistoryList')
     },
+    // 初始化图层
+    initLayer(state, value) {
+      state['resourceLayers'] = value
+    },
+
     // 删除图层
     removeLayer(state, value) {
       const { resourceLayers } = state
@@ -27,6 +36,8 @@ const store = new Vuex.Store({
         this.commit('setLayerHistoryList')
       }
     },
+
+
     // 设置选中图层
     setActiveLayer(state, item) {
       state['activeLayer'] = item
